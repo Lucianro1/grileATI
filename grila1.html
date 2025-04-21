@@ -85,8 +85,24 @@
     </ul>
   </div>
 
-  <button onclick="checkAnswers()">Verifica</button>
-
+  <button>
+    <a href="index.html">
+      Prima pagina
+    </a>
+  </button>
+  <button>
+    <a href="index.html">
+      Previous page
+    </a>
+  </button>
+  <button>
+    <a href="grila2.html">
+      Next page
+    </a>
+  </button>
+  <button onclick="checkAnswers()">
+    Verifica
+  </button>
   <script>
     document.querySelectorAll('.answers').forEach(list => {
       list.addEventListener('click', e => {
