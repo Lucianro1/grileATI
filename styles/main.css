@@ -5,6 +5,9 @@
       padding: 20px;
       font-size: 20px;
     }
+    p {
+      font-size: 36px;
+    }
     .question {
       margin-bottom: 30px;
     }
