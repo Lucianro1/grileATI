@@ -5,7 +5,6 @@ button {
   cursor: pointer;
   margin-top: 20px;
   border-radius: 10px;
-  height: 30px;
 }
 .button-check {
   background-color: greenyellow;
@@ -14,17 +13,17 @@ button {
   display: grid;
   column-gap: 10px;
 }
-@media (max-width: 550px) {
+@media (max-width: 750px) {
   .button-grid {
     grid-template-columns: 1fr 1fr;
   }
 }
-@media (min-width: 551px) and (max-width: 750px) {
+@media (min-width: 751px) and (max-width: 1000px) {
   .button-grid {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
-@media (min-width: 751px) {
+@media (min-width: 1001px) {
   .button-grid {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
