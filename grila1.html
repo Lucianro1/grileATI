@@ -1,80 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Quiz Cardiac</title>
-  <style>
-    body {
-      background-color: #636363;
-      color: white;
-      font-family: Arial, sans-serif;
-      padding: 20px;
-    }
-    .question {
-      margin-bottom: 30px;
-    }
-    .answers {
-      list-style: none;
-      padding: 0;
-    }
-    .answer {
-      padding: 10px;
-      margin: 5px 0;
-      border: 2px solid transparent;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      position: relative;
-    }
-    .answer:hover::after {
-      content: attr(data-tooltip);
-      position: absolute;
-      left: 105%;
-      top: 0;
-      background: rgba(0,0,0,0.8);
-      color: white;
-      padding: 8px;
-      border-radius: 10px;
-      width: 220px;
-      font-size: 13px;
-    }
-    .selected {
-      border: 2px solid black;
-    }
-    .correct {
-      animation: greenFlash 0.2s forwards;
-    }
-    .incorrect {
-      animation: redFlash 0.8s forwards;
-    }
-    .missed {
-      animation: yellowFlash 1.4s forwards;
-    }
-    @keyframes greenFlash {
-      to { background-color: rgb(29, 156, 29); }
-    }
-    @keyframes redFlash {
-      to { background-color: rgb(187, 57, 57); }
-    }
-    @keyframes yellowFlash {
-      to { background-color: rgb(194, 165, 3); }
-    }
-    button {
-      padding: 10px 20px;
-      background-color: rgb(0, 162, 255);
-      border: none;
-      cursor: pointer;
-      margin-top: 20px;
-      border-radius: 6px;
-    }
-  </style>
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <title>Quiz Cardiac</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/button.css">
+  </head>
 <body>
-  <div class="question" data-answer="TFTFF" data-explanations='[
-    "Ventricular volume is maximal at end diastole, not systolic pause.",
-    "Correct: Right coronary artery supplies right heart and parts of left.",
-    "Correct: One nucleus, many mitochondria is characteristic.",
-    "Incorrect: Skeletal fibers are more structured than cardiac.",
-    "Incorrect: Calcium is sequestered via Ca2+ ATPase, not Na+/K+."]'>
+  <div class="question" data-answer="TFTFF" data-explanations='["1","2","3","4","5"]'>
     <p><strong>Question 1</strong><br>Regarding cardiac muscle structure, which of the following statements are correct?:</p>
     <ul class="answers">
       <li class="answer">a. The volume of the left ventricle is maximal at the atrial end systolic pause</li>
@@ -84,55 +17,12 @@
       <li class="answer">e. The sarcoplasmic reticulum sequesters calcium via a Na+/K+-ATPase pump</li>
     </ul>
   </div>
-
-  <button>
-    <a href="index.html">
-      Prima pagina
-    </a>
-  </button>
-  <button>
-    <a href="index.html">
-      Previous page
-    </a>
-  </button>
-  <button>
-    <a href="grila2.html">
-      Next page
-    </a>
-  </button>
-  <button onclick="checkAnswers()">
-    Verifica
-  </button>
-  <script>
-    document.querySelectorAll('.answers').forEach(list => {
-      list.addEventListener('click', e => {
-        if (e.target.classList.contains('answer')) {
-          e.target.classList.toggle('selected');
-        }
-      });
-    });
-
-    function checkAnswers() {
-      document.querySelectorAll('.question').forEach(question => {
-        const correct = question.dataset.answer.split('');
-        const explanations = JSON.parse(question.dataset.explanations);
-        const answers = question.querySelectorAll('.answer');
-
-        answers.forEach((ans, i) => {
-          const isSelected = ans.classList.contains('selected');
-          const isCorrect = correct[i] === 'T';
-          ans.setAttribute('data-tooltip', explanations[i]);
-
-          if (isCorrect && isSelected) {
-            ans.classList.add('correct');
-          } else if (!isCorrect && isSelected) {
-            ans.classList.add('incorrect');
-          } else if (isCorrect && !isSelected) {
-            ans.classList.add('missed');
-          }
-        });
-      });
-    }
-  </script>
+  <div class="button-grid">
+    <button> <a href="index.html"> Home page </a> </button>
+    <button> <a href="index.html"> Previous page </a> </button>
+    <button> <a href="grila2.html"> Next page </a> </button>
+    <button class="button-check" onclick="checkAnswers()"> Verifica </button>
+  </div>
+  <script src="scripts/main.js"></script>
 </body>
 </html>

@@ -1,139 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Quiz Cardiac</title>
-  <style>
-    body {
-      background-color: #464646;
-      color: white;
-      font-family: Arial, sans-serif;
-      padding: 20px;
-    }
-    .question {
-      margin-bottom: 30px;
-    }
-    .answers {
-      list-style: none;
-      padding: 0;
-      z-index: 11;
-    }
-    .answer {
-      padding: 10px;
-      margin: 5px 0;
-      border: 2px solid transparent;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      position: relative;
-      z-index: 10;
-    }
-    .answer:hover::after {
-      background color: black;
-      content: attr(data-tooltip);
-      position: absolute;
-      left: 0;
-      top: 50px;
-      background: rgba(0,0,0,0.8);
-      color: white;
-      padding: 8px;
-      border-radius: 6px;
-      width: 220px;
-      font-size: 13px;
-      z-index: 15;
-    }
-    .selected {
-      border: 2px solid black;
-    }
-    .correct {
-      animation: greenFlash 0.2s forwards;
-    }
-    .incorrect {
-      animation: redFlash 0.4s forwards;
-    }
-    .missed {
-      animation: yellowFlash 0.6s forwards;
-    }
-    @keyframes greenFlash {
-      to { background-color: lightgreen; }
-    }
-    @keyframes redFlash {
-      to { background-color: lightcoral; }
-    }
-    @keyframes yellowFlash {
-      to { background-color: gold; }
-    }
-    button {
-      padding: 10px 20px;
-      background-color: rgb(0, 174, 255);
-      border: none;
-      cursor: pointer;
-      margin-top: 20px;
-    }
-  </style>
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <title>Quiz Cardiac</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/button.css">
+  </head>
 <body>
-  <div class="question" data-answer="TTFTT" data-explanations='[
-    "Correct: Conduction proceeds L->R through septum.",
-    "Correct: LBBB usually causes left axis deviation.",
-    "Incorrect: RBBB does not typically change the axis.",
-    "Correct: Vagus (CN X) slows AV conduction.",
-    "Correct: WPW involves accessory conduction pathway."]'>
-    <p><strong>Question 2</strong><br> Regarding conduction through the heart:</p>
+  <div class="question" data-answer="TFTFF" data-explanations='["1","2","3","4","5"]'>
+    <p><strong>Question 1</strong><br>Regarding cardiac muscle structure, which of the following statements are correct?:</p>
     <ul class="answers">
-      <li class="answer">a. Conduction through the cardiac septum is usually uni-directional from left to right</li>
-      <li class="answer">b. Left bundle branch block usually produces left axis deviation on the 12-lead ECG</li>
-      <li class="answer">c. Right bundle branch block usually produces right axis deviation on the 12-lead ECG</li>
-      <li class="answer">d. Stimulation of the tenth cranial nerve induces slowing of AV conduction</li>
-      <li class="answer">e. Wolff-Parkinson-White syndrome is always associated with an accessory conducting bundle</li>
+      <li class="answer">a. The volume of the left ventricle is maximal at the atrial end systolic pause</li>
+      <li class="answer">b. The right coronary artery usually supplies both the right atrium and ventricle, and part of the left atrium</li>
+      <li class="answer">c. Cardiac muscle cells have one nucleus, but many mitochondria</li>
+      <li class="answer">d. Striated cardiac muscle fibres are more structured than skeletal muscle fibres</li>
+      <li class="answer">e. The sarcoplasmic reticulum sequesters calcium via a Na+/K+-ATPase pump</li>
     </ul>
   </div>
-  <button>
-    <a href="index.html">
-      Prima pagina
-    </a>
-  </button>
-  <button>
-    <a href="grila1.html">
-      Previous page
-    </a>
-  </button>
-  <button>
-    <a href="grila3.html">
-      Next page
-    </a>
-  </button>
-  <button onclick="checkAnswers()">Verifica</button>
-
-  <script>
-    document.querySelectorAll('.answers').forEach(list => {
-      list.addEventListener('click', e => {
-        if (e.target.classList.contains('answer')) {
-          e.target.classList.toggle('selected');
-        }
-      });
-    });
-
-    function checkAnswers() {
-      document.querySelectorAll('.question').forEach(question => {
-        const correct = question.dataset.answer.split('');
-        const explanations = JSON.parse(question.dataset.explanations);
-        const answers = question.querySelectorAll('.answer');
-
-        answers.forEach((ans, i) => {
-          const isSelected = ans.classList.contains('selected');
-          const isCorrect = correct[i] === 'T';
-          ans.setAttribute('data-tooltip', explanations[i]);
-
-          if (isCorrect && isSelected) {
-            ans.classList.add('correct');
-          } else if (!isCorrect && isSelected) {
-            ans.classList.add('incorrect');
-          } else if (isCorrect && !isSelected) {
-            ans.classList.add('missed');
-          }
-        });
-      });
-    }
-  </script>
+  <div class="button-grid">
+    <button> <a href="index.html"> Home page </a> </button>
+    <button> <a href="grila1.html"> Previous page </a> </button>
+    <button> <a href="grila3.html"> Next page </a> </button>
+    <button class="button-check" onclick="checkAnswers()"> Verifica </button>
+  </div>
+  <script src="scripts/main.js"></script>
 </body>
 </html>

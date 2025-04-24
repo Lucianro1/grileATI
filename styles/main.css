@@ -1,0 +1,43 @@
+    body {
+      background-color: #464646;
+      color: white;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .question {
+      margin-bottom: 30px;
+    }
+    .answers {
+      list-style: none;
+      padding: 0;
+    }
+    .answer {
+      padding: 10px;
+      margin: 5px 0;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .selected {
+      border: 2px solid black;
+    }
+    .correct {
+      animation: greenFlash 0.2s forwards;
+    }
+    .incorrect {
+      animation: redFlash 0.8s forwards;
+    }
+    .missed {
+      animation: yellowFlash 1.4s forwards;
+    }
+    @keyframes greenFlash {
+      to { background-color: rgb(29, 156, 29); }
+    }
+    @keyframes redFlash {
+      to { background-color: rgb(187, 57, 57); }
+    }
+    @keyframes yellowFlash {
+      to { background-color: rgb(194, 165, 3); }
+    }
+    
