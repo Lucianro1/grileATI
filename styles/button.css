@@ -5,6 +5,7 @@ button {
   cursor: pointer;
   margin-top: 20px;
   border-radius: 10px;
+  font-size: 300;
 }
 .button-check {
   background-color: greenyellow;
