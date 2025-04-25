@@ -12,7 +12,7 @@ button {
 }
 .button-grid {
   display: grid;
-  column-gap: 20px;
+  column-gap: 2vw;
 }
 @media (max-width: 600px) {
   .button-grid {
