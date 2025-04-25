@@ -6,7 +6,7 @@
       font-size: 4vw;
     }
     p {
-      font-size: 3vw;
+      font-size: 4vw;
     }
     .question {
       margin-bottom: 1vw;
@@ -16,8 +16,8 @@
       padding: 0;
     }
     .answer {
-      padding: 10px;
-      margin: 5px 0;
+      padding: 1vw;
+      margin: 1vw;
       border: 2px solid transparent;
       cursor: pointer;
       transition: all 0.3s ease;
